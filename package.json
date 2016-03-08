@@ -1,0 +1,36 @@
+{
+  "name": "nassdb",
+  "version": "1.0.0",
+  "description": "Database API for nass replication.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobotWithFeelings/nassDB.git"
+  },
+  "keywords": [
+    "mongodb",
+    "API",
+    "mongoose",
+    "restify"
+  ],
+  "author": "meneal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobotWithFeelings/nassDB/issues"
+  },
+  "homepage": "https://github.com/RobotWithFeelings/nassDB#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chance": "^1.0.1",
+    "express": "^4.13.4",
+    "http-status": "^0.2.0",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.4.6",
+    "superagent": "^1.8.0-beta.2",
+    "wagner-core": "^0.2.0"
+  }
+}
