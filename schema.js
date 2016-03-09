@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
-var Chance = require('chance');
-var chance = new Chance();
-
-nm = chance.name();
 
 module.exports = new mongoose.Schema({
 	name: {
 		type: String,
-		default: nm,
 		lowercase: true
 	},
 	time: {
