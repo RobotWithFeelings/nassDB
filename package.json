@@ -4,7 +4,8 @@
   "description": "Database API for nass replication.",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha test",
+    "run": "node index.html"
   },
   "repository": {
     "type": "git",
