@@ -7,23 +7,23 @@ before_script:
 - sudo npm install
 script:
 - npm test
- deploy:
-  - provider: s3
-    access_key_id: AKIAIQZNHLY2YNOGE4AA
-    secret_access_key:
-      secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
-    local_dir: dpl_cd_upload
-    skip_cleanup: true
-    on: &2
-      repo: travis-ci nassDB
-    bucket: nassdb
-  - provider: codedeploy
-    access_key_id: AKIAIQZNHLY2YNOGE4AA
-    secret_access_key: 
-      secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
-    bucket: nassdb
-    key: latest.zip
-    application: nassDB
-    deployment_group: Nass
-after_deploy:
-  - npm run
+# deploy:
+# - provider: s3
+#   access_key_id: AKIAIQZNHLY2YNOGE4AA
+#   secret_access_key: 
+#     secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
+#   local_dir: dpl_cd_upload
+#   skip_cleanup: true
+#   # on: &2
+#   #   repo: travis-ci nassDB
+#   bucket: nassdb
+# - provider: codedeploy
+#   access_key_id: AKIAIQZNHLY2YNOGE4AA
+#   secret_access_key: 
+#     secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
+#   bucket: nassdb
+#   key: latest.zip
+#   application: nassDB
+#   deployment_group: Nass
+# after_deploy:
+#   - npm run
