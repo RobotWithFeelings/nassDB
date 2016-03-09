@@ -25,7 +25,7 @@ module.exports = function(wagner,chance){
   //Route to return all the surveys
   api.get('/surveys', wagner.invoke(function(Survey){
     return function(req, res){
-      console.log(req);
+      // console.log(req);
       Survey.find({ }, function(err,surveys){
         if(err){
           return res.status(status.INTERNAL_SERVER_ERROR).json({error: err.toString()});
@@ -33,17 +33,17 @@ module.exports = function(wagner,chance){
         if(!surveys){
           return res.status(status.NOT_FOUND).json({error: "Not Found!!!"});
         }
-        res.json( surveys );
-      });
+        res.json({surveys: surveys});
+      }); 
     };
   }));
 
   //Route intended to input all answers to survey into already defined survey
   api.put('/surveys/name/:name', wagner.invoke(function(Survey){
     return function(req, res){
-      console.log(req.body);
+      // console.log(req.body);
       try { 
-        var ans = req.body.data;
+        var ans = req.body;
       } catch(err){
         return res.status(status.BAD_REQUEST).json({error: "No answers to change"});
       }
@@ -56,8 +56,8 @@ module.exports = function(wagner,chance){
           return res.status(status.NOT_FOUND).json({error: "Name not found"});
         }
         for(var key in ans){
-          console.log('key: ' + key);
-          console.log('survey.key ' + survey[key]);
+          // console.log('key: ' + key);
+          // console.log('survey.key ' + survey[key]);
           survey[key] = ans[key];
         }
         // console.log(JSON.stringify(survey));
@@ -103,11 +103,11 @@ module.exports = function(wagner,chance){
         if(!survey){
           return res.status(status.NOT_FOUND).json({error: "Not Found!!!"});
         }
-        survey.remove(function(err, res){
+        survey.remove(function(err){
           if(err){
             return res.status(status.INTERNAL_SERVER_ERROR).json({error: err.toString()});
           }
-          console.log('' + res + ' document(s) deleted');
+          // console.log('' + res + ' document(s) deleted');
           return res.json({survey:survey});
         });
       });
