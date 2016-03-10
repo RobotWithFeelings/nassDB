@@ -1,8 +1,10 @@
 language: node_js
 node_js:
   - "4.1"
-  - "0.11"
-  - "0.10"
+env:
+  secure: "dGtkwcBaeymJ+MPM3gOr3RiEDfAEj4JV8xUembj7G+DJkL2p+/jG+POQ+/EClfVBd0aFUYX07I9fI7v0sqNEtzgf/VI8d0KAknEiJLTqsEBmQbCmXz7fitnf5UarnqsqHaH+tyRq+i6JK1saSFIcDHcbs1CsimjUOkSOGH8G81JJOWiaFiDzv8rPvBBB3uOpz3AO2PjgzXRzG5dUb0FGwLsMYKfdmCGaBymAh9L8UH89DtmTNz1ZNKKDNIpYQ33S7SZi6GdNbLysOdq/BMpKMla+omvPT++mgg31wl3++zbw0Pjpxj5KVT/qdpFUc+8l2HssUAHMg9rQ1UyUH7L8rzAJ93ArXFBUyQGIehhODeDpKVH89AlSf8fbuNKf6bOQIURSsXInrUZojPcJHHnJx6PWwCo6kAQ0s0+HqY3G8B1vLXTl7ZEMP9Qgn27veqGm0wP75GQb5i3HEajh6+Wci86UUu8g7XY1NCkTF368vIYvH+YhXt3COiGov/s0YN7M6R6P4pIWPQFQjsQJvmhlgWV2k19M4QqDRfrfw47pRrXoyVv5ddFIIDhnosD67IjAkoTz1hKenUJHxmlwgu2qGUOmMx+hCobYjIdfLqS1M+yujr4TrQQO9fMJ9rbNZNYJwOJutZkH+6kQskUEAHLVeenrHOVjmnUdasZV9iRZTMc="
+  # - "0.11"
+  # - "0.10"
 # deploy:
 # - provider: s3
 #   access_key_id: AKIAIQZNHLY2YNOGE4AA

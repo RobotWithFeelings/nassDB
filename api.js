@@ -47,7 +47,6 @@ module.exports = function(wagner,chance){
       } catch(err){
         return res.status(status.BAD_REQUEST).json({error: "No answers to change"});
       }
-
       Survey.findOne({"name": req.params.name}, function(err,survey){
         if(err){
           return res.status(status.INTERNAL_SERVER_ERROR).json({error: err.toString()});
