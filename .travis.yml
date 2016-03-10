@@ -3,25 +3,3 @@ node_js:
   - "4.1"
 env:
   secure: "dGtkwcBaeymJ+MPM3gOr3RiEDfAEj4JV8xUembj7G+DJkL2p+/jG+POQ+/EClfVBd0aFUYX07I9fI7v0sqNEtzgf/VI8d0KAknEiJLTqsEBmQbCmXz7fitnf5UarnqsqHaH+tyRq+i6JK1saSFIcDHcbs1CsimjUOkSOGH8G81JJOWiaFiDzv8rPvBBB3uOpz3AO2PjgzXRzG5dUb0FGwLsMYKfdmCGaBymAh9L8UH89DtmTNz1ZNKKDNIpYQ33S7SZi6GdNbLysOdq/BMpKMla+omvPT++mgg31wl3++zbw0Pjpxj5KVT/qdpFUc+8l2HssUAHMg9rQ1UyUH7L8rzAJ93ArXFBUyQGIehhODeDpKVH89AlSf8fbuNKf6bOQIURSsXInrUZojPcJHHnJx6PWwCo6kAQ0s0+HqY3G8B1vLXTl7ZEMP9Qgn27veqGm0wP75GQb5i3HEajh6+Wci86UUu8g7XY1NCkTF368vIYvH+YhXt3COiGov/s0YN7M6R6P4pIWPQFQjsQJvmhlgWV2k19M4QqDRfrfw47pRrXoyVv5ddFIIDhnosD67IjAkoTz1hKenUJHxmlwgu2qGUOmMx+hCobYjIdfLqS1M+yujr4TrQQO9fMJ9rbNZNYJwOJutZkH+6kQskUEAHLVeenrHOVjmnUdasZV9iRZTMc="
-  # - "0.11"
-  # - "0.10"
-# deploy:
-# - provider: s3
-#   access_key_id: AKIAIQZNHLY2YNOGE4AA
-#   secret_access_key: 
-#     secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
-#   local_dir: dpl_cd_upload
-#   skip_cleanup: true
-#   # on: &2
-#   #   repo: travis-ci nassDB
-#   bucket: nassdb
-# - provider: codedeploy
-#   access_key_id: AKIAIQZNHLY2YNOGE4AA
-#   secret_access_key: 
-#     secure: "qydfm0kPLDBlacr42nWFZ9ygn20f46EX5igQ0lCU5eqf/XYJ5kYop8fLZmURgvdMbDDOgdMxe3Z4GQXA7swAhJf3YjCQ1uksx/l52N+8zpHhPTXSvjKdCdWFqNK0AvbilC7E/d6+FxIC0rPMrZO/wpnnn0lEzeDoEAzZ6RBFUEbZWEGzbVMMXh+fR/PCk8iAwGCTev7RgXU2wtzeeU5NkQ9lhs+8gEjUqXhXh8ervKqj+qVDKZRYCu9n9oaJ2x+o23LRyanEXDPZyB4qA7Z+d1EQ/smCnHTrFtP6cNXYMD9xTsJ909Dpxmpe/SCV2CtqyZDzWSP0gpzRo0nPeYFx7PCaorf0BIQJ+Pk2kInaeTtiXL06BOBEgNPchCHOAxz5O54QHTB/0670JwY4LcdxDqo1Zaj+9AK8ugIOctSuYDWpeslQ5sqwYe+v32D3mzUVh3Bi5+VP1Q56oezCOJ3aSoHl92wbBlEtuK9d1T5Q3rFRjhs8lQ7Inhf755EL67jcfp9YKDBz/eB+4gfTEJf/yduxjyDINJl7laqTj7H492GV1N8QssZicny1x65u7asXJ4cBFXUfvClHPEUgXDhEEBk4/Fi2xkTDaqL+FH+P0siqEor0Yr8guKfHD/dQLnRIYeI6RdmiLKOTr/LIOZYWwO9Wb+nNQvpRWeNgVFosHyg=
-#   bucket: nassdb
-#   key: latest.zip
-#   application: nassDB
-#   deployment_group: Nass
-# after_deploy:
-#   - npm run
