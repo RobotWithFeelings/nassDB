@@ -79,11 +79,12 @@ describe('Survey API', function() {
 
     app.use(require('./api')(wagner,chance,stormpath));
 
-    server = app.listen(3000,function(){
+    server = app.listen(3000,function(err, res){
+      assert.ifError(err);
       // console.log("listening on port 3000");
     });
 
-    app.on('stormpath.ready',function(){
+    app.on('stormpath.ready',function(err, res){
       // console.log("stormpath ready");
       done();
     });    
@@ -109,7 +110,6 @@ describe('Survey API', function() {
   after(function(){
     Survey.remove({}, function(err){
       assert.ifError(err);
-      console.log("server closing");
       server.close();
     });
   });
@@ -228,9 +228,9 @@ describe('Survey API', function() {
       .end( function(err,res){
         assert.ifError(err);
         assert.ifEqual(res.status, status.OK);
-        Survey.findOne({"name":"rigoberto"}, function(err,res){
+        Survey.findOne({"name":"rigoberto"}, function(err, deleted){
           assert.ifError(err);
-          assert.equal(res,null);
+          assert.equal(deleted,null);
         });
       });
       done();
@@ -238,12 +238,12 @@ describe('Survey API', function() {
 
   it('cannot access a route without key', function(done){
     var url = URL + '/surveys/name/chutulu';
+    assert.throws(
     superagent
       .get(url)
       .end(function(err,res){
-        assert.equal(err, status.UNAUTHORIZED);
-        assert.equal(res, status.UNAUTHORIZED);
-      });
+        console.log(err);
+      }), Error);
       done();
   });
 
