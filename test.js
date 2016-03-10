@@ -3,8 +3,13 @@ var status = require('http-status');
 var express = require('express');
 var superagent = require('superagent');
 var wagner = require('wagner-core');
+var Chance = require('chance');
+var stormpath = require('express-stormpath');
+var chance = new Chance();
 
 var URL = 'http://localhost:3000'
+var un = process.env.CLIENT_API_KEY;
+var pw = process.env.CLIENT_SECRET;
 
 describe('Survey API', function() {
   var server;
@@ -67,11 +72,22 @@ describe('Survey API', function() {
   }
 
 
-  before(function(){
+  before(function(done){
     var app = express();
     models = require('./models')(wagner);
-    app.use(require('./api')(wagner));
-    server = app.listen(3000);
+    app.use(stormpath.init(app, { website: true }));
+
+    app.use(require('./api')(wagner,chance,stormpath));
+
+    server = app.listen(3000,function(){
+      // console.log("listening on port 3000");
+    });
+
+    app.on('stormpath.ready',function(){
+      // console.log("stormpath ready");
+      done();
+    });    
+
     Survey = models.Survey;
     Survey.create(chutulu, function(err,doc){
       assert.ifError(err);
@@ -85,18 +101,25 @@ describe('Survey API', function() {
     Survey.create(rigoberto, function(err, doc){
       assert.ifError(err);
     })
+
+    
+
   });
 
   after(function(){
     Survey.remove({}, function(err){
       assert.ifError(err);
+      console.log("server closing");
       server.close();
     });
   });
 
   it('can load a survey by name', function(done) {   
     var url = URL + '/surveys/name/chutulu';
-    superagent.get(url, function(err,res){
+    superagent
+      .get(url)
+      .auth(un,pw)
+      .end(function(err,res){
       assert.ifError(err);
       var result;
       assert.doesNotThrow(function(){
@@ -111,7 +134,10 @@ describe('Survey API', function() {
 
   it('can load all of the surveys', function(done){
     var url = URL + '/surveys';
-    superagent.get(url, function(err,res){
+    superagent
+      .get(url)
+      .auth(un,pw)
+      .end(function(err,res){
       assert.ifError(err);
       var result;
       assert.doesNotThrow(function(){
@@ -141,8 +167,10 @@ describe('Survey API', function() {
       "q4":9, 
       "q5":1
     }
-    url = URL + '/surveys';
-    superagent.post(url)
+    var url = URL + '/surveys';
+    superagent
+      .post(url)
+      .auth(un,pw)
       .send(s1)
       .end(function(err, res){
         assert.ifError(err);
@@ -177,34 +205,48 @@ describe('Survey API', function() {
     var url = URL + '/surveys/name/roderick';
     superagent
       .put(url)
+      .auth(un,pw)
       .send(changedQs)
-      .end(function(err,res){
+      .end( function(err,res){
         assert.ifError(err);
-        assert.equal(res.status, status.OK);
-        Survey.findOne({"name": "roderick"}, function(err,survey){
+        assert.ifEqual(res.status, status.OK);
+        Survey.findOne({"name": "roderick"}, function(err, survey){
           assert.ifError(err);
           for(key in changedQs){
             assert.equal(changedQs[key], survey[key]);
           }
-          done();
         });
       });
+      done();
   });
-  
+
   it('can delete a survey by name', function(done){
-    // Delete it and see if it's not there anymore.
-    var url = URL + '/surveys/name/rigoberto';
+    var url = URL + 'surveys/name/rigoberto';
     superagent
       .del(url)
-      .end(function(err, res){
+      .auth(un,pw)
+      .end( function(err,res){
         assert.ifError(err);
-        assert.ok(res);
-        Survey.findOne({"name":"rigoberto"}, function(err, res){
-          assert.equal(res, null);
-          done();
+        assert.ifEqual(res.status, status.OK);
+        Survey.findOne({"name":"rigoberto"}, function(err,res){
+          assert.ifError(err);
+          assert.equal(res,null);
         });
       });
+      done();
   });
+
+  it('cannot access a route without key', function(done){
+    var url = URL + '/surveys/name/chutulu';
+    superagent
+      .get(url)
+      .end(function(err,res){
+        assert.equal(err, status.UNAUTHORIZED);
+        assert.equal(res, status.UNAUTHORIZED);
+      });
+      done();
+  });
+
 });
 
 

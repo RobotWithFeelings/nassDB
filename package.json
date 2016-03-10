@@ -4,7 +4,7 @@
   "description": "Database API for nass replication.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "mocha --timeout 10000 test",
     "run": "node index.html"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "chai": "^3.5.0",
     "chance": "^1.0.1",
     "express": "^4.13.4",
+    "express-stormpath": "^3.0.1",
     "http-status": "^0.2.0",
     "mocha": "^2.4.5",
     "mongodb": "^2.1.7",

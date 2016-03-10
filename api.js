@@ -2,13 +2,13 @@ var express = require('express');
 var status = require('http-status');
 var bodyparser = require('body-parser');
 
-module.exports = function(wagner,chance){
+module.exports = function(wagner,chance,stormpath){
 	var api = express.Router();
 
   api.use(bodyparser.json());
 
   //Route to return survey by name
-	api.get('/surveys/name/:name', wagner.invoke(function(Survey){
+	api.get('/surveys/name/:name', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
 			Survey.findOne({ "name": req.params.name }, function(err,survey){
 				if(err){
@@ -23,7 +23,7 @@ module.exports = function(wagner,chance){
 	}));
 
   //Route to return all the surveys
-  api.get('/surveys', wagner.invoke(function(Survey){
+  api.get('/surveys', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
       // console.log(req);
       Survey.find({ }, function(err,surveys){
@@ -39,7 +39,7 @@ module.exports = function(wagner,chance){
   }));
 
   //Route intended to input all answers to survey into already defined survey
-  api.put('/surveys/name/:name', wagner.invoke(function(Survey){
+  api.put('/surveys/name/:name', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
       // console.log(req.body);
       try { 
@@ -70,7 +70,7 @@ module.exports = function(wagner,chance){
     };
   }));
 
-  api.post('/surveys', wagner.invoke(function(Survey){
+  api.post('/surveys', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
       try { 
         var survey = req.body;
@@ -93,7 +93,7 @@ module.exports = function(wagner,chance){
     };
   }));
 
-  api.delete('/surveys/name/:name',wagner.invoke(function(Survey){
+  api.delete('/surveys/name/:name', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
       Survey.findOne({ "name": req.params.name }, function(err, survey){
         if(err){
