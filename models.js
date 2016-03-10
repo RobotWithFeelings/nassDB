@@ -10,13 +10,21 @@ var URI = 'mongodb://' + un + ':' + pw + '@' + host + ':' + port + '/' + db + '?
 
 var schema = require('./schema');
 
-module.exports = function(wagner){
+module.exports = function(wagner, test){
 	mongoose.connect(URI);
 
-	var Survey = mongoose.model('Survey', schema, 'surveys');
-	wagner.factory('Survey', function(){
-		return Survey;
-	});
+  if(test){
+    var Survey = mongoose.model('Survey', schema, 'test');
+    wagner.factory('Survey', function(){
+      return Survey;
+    });
+  }else{
+    var Survey = mongoose.model('Survey', schema, 'surveys');
+    wagner.factory('Survey', function(){
+      return Survey;
+    });
+  }
+	
 
 	return{
 		Survey: Survey

@@ -4,7 +4,7 @@ var Chance = require('chance');
 var stormpath = require('express-stormpath');
 var chance = new Chance();
 
-require('./models')(wagner);
+require('./models')(wagner, false);
 
 var app = express();
 
