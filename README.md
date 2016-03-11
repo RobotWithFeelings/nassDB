@@ -108,3 +108,27 @@ Example curl request:
 ```
 curl -X DELETE -u username:pw -d '' "http://nassdb.herokuapp.com/api/v1/surveys/name/chutulu"
 ```
+
+## Dumping the database to CSV
+```
+mongoexport -h nassdb-0.robot-with-feeling.8169.mongodbdns.com:27000 -d nass -c surveys -u username -p password --type=csv -f name,ownMachine,cs,gender,progExp,age,q1,q2,q3,q4,q5 --authenticationDatabase nass -o stuff.csv
+```
+
+Where the username and password are your username and password.  The command requires that mongodb is installed on your machine.  In OSX that's fairly straightforward if you have homebrew:
+
+```
+brew update
+brew install mongodb
+```
+
+For windows, good luck:  
+
+https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/
+
+For team members I can make a linux box available to ssh into for mongo shell usage.
+
+## Accessing the database through the mongo shell:
+
+This assumes you have mongodb installed and you have a username and password:
+
+mongo nassdb-0.robot-with-feeling.8169.mongodbdns.com:27000 --authenticationDatabase admin --username  username --password password
