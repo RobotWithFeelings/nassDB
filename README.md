@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/RobotWithFeelings/nassDB.svg?branch=master)](https://travis-ci.org/RobotWithFeelings/nassDB)
+
 # nassDB
 Database/API for Nass Replication website.
 
@@ -131,4 +133,6 @@ For team members I can make a linux box available to ssh into for mongo shell us
 
 This assumes you have mongodb installed and you have a username and password:
 
+```
 mongo nassdb-0.robot-with-feeling.8169.mongodbdns.com:27000 --authenticationDatabase admin --username  username --password password
+```
