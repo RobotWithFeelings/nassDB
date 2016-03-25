@@ -86,7 +86,7 @@ module.exports = function(wagner,chance,stormpath){
 
       Survey.create(survey, function(err){
         if(err){
-          return res.status(status.INTERNAL_SERVER_ERROR).json({error: err.toString()}));
+          return res.status(status.INTERNAL_SERVER_ERROR).json({error: err.toString()});
         }
         return res.json({survey: survey});
       });
