@@ -199,47 +199,47 @@ describe('Survey API', function() {
     });
   });
 
-  it('can change a survey by name', function(done){
-    var changedQs = {
-      "q1":8, 
-      "q2":8, 
-      "q3":7, 
-      "q4":5, 
-      "q5":6
-    };
-    var url = URL + '/surveys/name/roderick';
-    superagent
-      .put(url)
-      .auth(un,pw)
-      .send(changedQs)
-      .end( function(err,res){
-        assert.ifError(err);
-        assert.ifEqual(res.status, status.OK);
-        Survey.findOne({"name": "roderick"}, function(err, survey){
-          assert.ifError(err);
-          for(key in changedQs){
-            assert.equal(changedQs[key], survey[key]);
-          }
-        });
-      });
-      done();
-  });
+  // it('can change a survey by name', function(done){
+  //   var changedQs = {
+  //     "q1":8, 
+  //     "q2":8, 
+  //     "q3":7, 
+  //     "q4":5, 
+  //     "q5":6
+  //   };
+  //   var url = URL + '/surveys/name/roderick';
+  //   superagent
+  //     .put(url)
+  //     .auth(un,pw)
+  //     .send(changedQs)
+  //     .end( function(err,res){
+  //       assert.ifError(err);
+  //       assert.ifEqual(res.status, status.OK);
+  //       Survey.findOne({"name": "roderick"}, function(err, survey){
+  //         assert.ifError(err);
+  //         for(key in changedQs){
+  //           assert.equal(changedQs[key], survey[key]);
+  //         }
+  //       });
+  //     });
+  //     done();
+  // });
 
-  it('can delete a survey by name', function(done){
-    var url = URL + 'surveys/name/rigoberto';
-    superagent
-      .del(url)
-      .auth(un,pw)
-      .end( function(err,res){
-        assert.ifError(err);
-        assert.ifEqual(res.status, status.OK);
-        Survey.findOne({"name":"rigoberto"}, function(err, deleted){
-          assert.ifError(err);
-          assert.equal(deleted,null);
-        });
-      });
-      done();
-  });
+  // it('can delete a survey by name', function(done){
+  //   var url = URL + 'surveys/name/rigoberto';
+  //   superagent
+  //     .del(url)
+  //     .auth(un,pw)
+  //     .end( function(err,res){
+  //       assert.ifError(err);
+  //       assert.ifEqual(res.status, status.OK);
+  //       Survey.findOne({"name":"rigoberto"}, function(err, deleted){
+  //         assert.ifError(err);
+  //         assert.equal(deleted,null);
+  //       });
+  //     });
+  //     done();
+  // });
 
   // it('cannot access a route without key', function(done){
   //   var url = URL + '/surveys/name/chutulu';
