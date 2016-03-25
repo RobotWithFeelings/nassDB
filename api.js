@@ -7,6 +7,12 @@ module.exports = function(wagner,chance,stormpath){
 
   api.use(bodyparser.json());
 
+  api.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
   //Route to return survey by name
 	api.get('/surveys/name/:name', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
     return function(req, res){
