@@ -7,13 +7,13 @@ module.exports = function(wagner,chance,stormpath){
 
   // api.use(bodyparser.json());
 
-  api.use(bodyparser.json(), function(req, res, next) {
+  api.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://nassweb.herokuapp.com');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     next();
-  });
+  }, bodyparser.json());
 
   //Route to return survey by name
 	api.get('/surveys/name/:name', stormpath.apiAuthenticationRequired, wagner.invoke(function(Survey){
