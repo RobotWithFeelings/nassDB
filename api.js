@@ -87,7 +87,7 @@ module.exports = function(wagner,chance,stormpath){
       }
      
       if(!survey.hasOwnProperty('name')){
-        randName = chance.name();
+        randName = chance.city();
         console.log(randName);
         survey.name = randName;
       }
