@@ -17,7 +17,8 @@ describe('Survey API', function() {
 
   var chutulu = {
     "name": "chutulu",
-    "eval": "oc",
+    "pubComp": 0,
+    "penPaper": 0,
     "cs" : 0,
     "gender": "f",
     "progExp": 0,
@@ -32,7 +33,8 @@ describe('Survey API', function() {
 
   var don = {
     "name": "don jenkins",
-    "eval": "pp",
+    "pubComp": 0,
+    "penPaper": 0,
     "cs" : 0,
     "gender": "f",
     "progExp": 0,
@@ -47,7 +49,8 @@ describe('Survey API', function() {
 
   var roderick = {
     "name": "roderick",
-    "eval": "dc",
+    "pubComp": 0,
+    "penpaper": 0,
     "cs" : 0,
     "gender": "f",
     "progExp": 0,
@@ -62,7 +65,9 @@ describe('Survey API', function() {
 
   var rigoberto = {
     "name": "rigoberto",
-    "eval": "dc",
+    "ownMachine": 0,
+    "pubComp": 0,
+    "penPaper": 0,
     "cs" : 0,
     "gender": "f",
     "progExp": 0,
@@ -160,7 +165,8 @@ describe('Survey API', function() {
   it('can add a survey', function(done){
     var s1 = {
       "name": "reginald",
-      "eval": "pp",
+      "pubComp": 1,
+      "penPaper": 0,
       "cs" : 0,
       "gender": "f",
       "progExp": 0,

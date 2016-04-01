@@ -13,6 +13,10 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
+	ownComputer{
+		type: Boolean,
+		required: true
+	},
 	gender: {
 		type: String,
 		required: true,
@@ -35,11 +39,9 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
-	eval: {
-		type: String,
+	penpaper: {
+		type: Boolean,
 		required: true,
-		enum: ['pp','oc', 'dc'],
-		lowercase: true
 	},
 	q1: {
 		type: Number,

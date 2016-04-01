@@ -1,2 +1,5 @@
-name,ownMachine,cs,gender,progExp,age,q1,q2,q3,q4,q5
-chutulu,true,false,f,0,100,5,8,4,9,1
+name,cs,gender,progExp,age,international,eval,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18
+nuceok,true,m,1000,1,true,oc,5,8,4,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+onjaeh,false,f,1,100,false,pp,,,,,,,,,,,,,,,,,,
+ottunel,true,f,400,100,false,dc,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+cawokpo,true,f,400,100,false,dc,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3
