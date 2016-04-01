@@ -41,7 +41,7 @@ module.exports = new mongoose.Schema({
 	},
 	penpaper: {
 		type: Boolean,
-		required: true,
+		required: true
 	},
 	q1: {
 		type: Number,
