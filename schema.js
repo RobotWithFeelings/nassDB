@@ -13,7 +13,7 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
-	pubComp{
+	pubComp: {
 		type: Boolean,
 		required: true
 	},
