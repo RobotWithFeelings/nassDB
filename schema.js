@@ -9,10 +9,6 @@ module.exports = new mongoose.Schema({
 		type: Date,
 		default: Date.now
 	},
-	ownMachine: {
-		type: Boolean,
-		required: true
-	},
 	cs: {
 		type: Boolean,
 		required: true
@@ -38,6 +34,12 @@ module.exports = new mongoose.Schema({
 	international: {
 		type: Boolean,
 		required: true
+	},
+	eval: {
+		type: String,
+		required: true,
+		enum: ['pp','oc', 'dc'],
+		lowercase: true
 	},
 	q1: {
 		type: Number,
