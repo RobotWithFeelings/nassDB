@@ -65,7 +65,6 @@ describe('Survey API', function() {
 
   var rigoberto = {
     "name": "rigoberto",
-    "ownMachine": 0,
     "pubComp": 0,
     "penPaper": 0,
     "cs" : 0,
