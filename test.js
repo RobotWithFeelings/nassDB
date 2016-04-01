@@ -50,7 +50,7 @@ describe('Survey API', function() {
   var roderick = {
     "name": "roderick",
     "pubComp": 0,
-    "penpaper": 0,
+    "penPaper": 0,
     "cs" : 0,
     "gender": "f",
     "progExp": 0,

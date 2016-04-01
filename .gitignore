@@ -35,3 +35,5 @@ jspm_packages
 
 # Mac crap
 .DS_Store
+
+.env
