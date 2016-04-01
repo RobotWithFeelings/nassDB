@@ -17,6 +17,10 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
+	penPaper: {
+		type: Boolean,
+		required: true
+	},
 	gender: {
 		type: String,
 		required: true,
@@ -36,10 +40,6 @@ module.exports = new mongoose.Schema({
 		max: 100
 	},
 	international: {
-		type: Boolean,
-		required: true
-	},
-	penPaper: {
 		type: Boolean,
 		required: true
 	},
