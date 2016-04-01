@@ -13,7 +13,7 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
-	ownComputer{
+	pubComp{
 		type: Boolean,
 		required: true
 	},
@@ -39,7 +39,7 @@ module.exports = new mongoose.Schema({
 		type: Boolean,
 		required: true
 	},
-	penpaper: {
+	penPaper: {
 		type: Boolean,
 		required: true
 	},
